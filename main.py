@@ -17,13 +17,19 @@ class defaultWindow(Frame):
         notes = ["Ab", "A", "A#", "Bb", "B", "B#", "Cb", "C", "C#", "Db",
                  "D", "D#", "Eb", "E", "E#", "Fb", "F", "F#", "Gb", "G", "G#"]
 
-        generatedNotes = []
+        generatedNotes = {}
 
-        for i in range(0, len(notes)):
-            value = randint(0, len(notes) - 1)
-            generatedNotes.append(notes[value])
+        count = 0
 
-        print(generatedNotes)
+        while count < len(notes):
+            note = notes[randint(0, len(notes)-1)]
+            if note in generatedNotes:
+                continue
+            else:
+                generatedNotes[note] = 1
+                count += 1
+
+        print(generatedNotes.keys())
 
 
 def main():
